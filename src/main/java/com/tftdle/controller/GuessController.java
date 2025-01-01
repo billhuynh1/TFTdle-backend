@@ -1,6 +1,7 @@
 package com.tftdle.controller;
 
 
+import brave.Response;
 import com.tftdle.model.GuessModel;
 import com.tftdle.model.GuessResponse;
 import com.tftdle.service.ChampService;
@@ -26,18 +27,34 @@ public class GuessController {
 
     GuessResponse guessResponse;
 
-    @PostMapping("/save")
+    @PostMapping("/v1/save")
     public ResponseEntity<String> saveGuess(@RequestBody GuessModel champRequest, HttpServletRequest request) {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         String sessionId = session.getId();
         String champ = champRequest.getChamp();
         guessService.saveGuess(champ, sessionId);
         return ResponseEntity.ok("Guessed Save for " + champ);
     }
 
+    // Check if it works with frontend
+    @PostMapping("/v2/{sessionId}/save")
+    public ResponseEntity<String> saveGuess(@PathVariable String sessionId, @RequestBody GuessModel guess) {
+        String champ = guess.getChamp();
+        // Add "isCorrect" to the save
+        guessService.saveGuess(champ, sessionId);
+        return ResponseEntity.ok("Guessed saved for: " + sessionId + " " + guess.getChamp());
+    }
+
+    // Works with postman, check with frontend
+    @GetMapping("/v2/{sessionId}/get")
+    public ResponseEntity<List<GuessModel>> getGuess(@PathVariable String sessionId) {
+        List<GuessModel> response = guessService.getGuess(sessionId);
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/get")
     public ResponseEntity<List<GuessModel>> getGuess(HttpServletRequest request) {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         String sessionId = session.getId();
         List<GuessModel> response = guessService.getGuess(sessionId);
         return ResponseEntity.ok(response);

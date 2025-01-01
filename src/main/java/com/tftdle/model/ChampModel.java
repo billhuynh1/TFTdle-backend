@@ -3,7 +3,8 @@ package com.tftdle.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Column;
+
+import java.util.Optional;
 
 @Entity
 @Table(name = "champions")
@@ -11,14 +12,13 @@ public class ChampModel {
     @Id
     private Long id;
 
-    private Integer attRange = 0;
     private String name = "";
     private String gender = "";
     private Integer cost = 0;
     private String type = "";
     private String imageurl = "";
     private String traits = "";
-
+    private Integer attRange = 0;
 
     public ChampModel() {}
 

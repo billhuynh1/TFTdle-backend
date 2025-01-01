@@ -8,5 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface ChampRepository extends JpaRepository<ChampModel, Long> {
-    Optional<ChampModel> findByName(String name);
 }

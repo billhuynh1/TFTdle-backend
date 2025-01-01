@@ -35,27 +35,17 @@ public class GuessModel {
         this.champ = champ;
     }
 
-    public boolean getIsCorrect() {return isCorrect;}
+    public boolean getIsCorrect() { return isCorrect; }
 
-    public void setIsCorrect(boolean isCorrect) {
-        this.isCorrect = isCorrect;
-    }
+    public void setIsCorrect(boolean isCorrect) { this.isCorrect = isCorrect; }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+    public Date getCreatedAt() { return createdAt; }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
 
     // Getter for sessionId
-    public String getSessionId() {
-        return sessionId;
-    }
+    public String getSessionId() { return sessionId; }
 
     // Setter for sessionId
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
+    public void setSessionId(String sessionId) { this.sessionId = sessionId; }
 }

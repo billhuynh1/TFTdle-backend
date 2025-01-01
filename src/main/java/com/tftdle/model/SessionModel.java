@@ -16,19 +16,11 @@ public class SessionModel {
     @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt;
 
-    public String getSessionId() {
-        return sessionId;
-    }
+    public String getSessionId() { return sessionId; }
 
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
+    public void setSessionId(String sessionId) { this.sessionId = sessionId; }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+    public Date getCreatedAt() { return createdAt; }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
 }

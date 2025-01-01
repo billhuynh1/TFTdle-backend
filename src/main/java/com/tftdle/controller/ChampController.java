@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/champs")
 public class ChampController {
 
     @Autowired
@@ -25,17 +26,17 @@ public class ChampController {
     @Autowired
     private SessionRepository sessionRepository;
 
-    @GetMapping("/champs")
+    @GetMapping("/v1/get")
     public List<ChampModel>getChamps() {
         return champService.getChamps();
     }
 
-    @GetMapping("/dailychamp")
+    @GetMapping("/v1/daily")
     public ChampModel getDailyChamp() {
         return champService.getDailyChamp();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/v1/save")
     public String saveChamps(@RequestBody List<String> guessedChamps, HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.getAttribute("guesses");
