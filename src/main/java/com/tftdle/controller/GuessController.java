@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:3000", "https://tftdle.vercel.app"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/guess")
 public class GuessController {

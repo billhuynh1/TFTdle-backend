@@ -4,10 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import java.util.Optional;
-
 @Entity
-@Table(name = "champions")
+@Table(name = "champions_set_13")
 public class ChampModel {
     @Id
     private Long id;
@@ -18,7 +16,7 @@ public class ChampModel {
     private String type = "";
     private String imageurl = "";
     private String traits = "";
-    private Integer attRange = 0;
+    private String attRange = "";
 
     public ChampModel() {}
 
@@ -38,7 +36,7 @@ public class ChampModel {
         return type;
     }
 
-    public Integer getAttRange() {
+    public String getAttRange() {
         return attRange;
     }
 
@@ -66,7 +64,7 @@ public class ChampModel {
         this.type = type;
     }
 
-    public void setAttRange(Integer attRange) {
+    public void setAttRange(String attRange) {
         this.attRange = attRange;
     }
 

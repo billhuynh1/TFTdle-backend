@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:3000", "https://tftdle.vercel.app"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/session")
 public class SessionController {
@@ -23,8 +23,6 @@ public class SessionController {
     @Autowired
     private SessionService sessionService;
 
-    // Testing ; it works properly. Replace HttpServletRequest
-    // with  -> @RequestBody SessionModel sessionModel
     @PostMapping("/save")
     public ResponseEntity<String> saveSession(HttpServletRequest request) {
         SessionModel sessionModel = sessionService.getSessionFromRequest(request);
