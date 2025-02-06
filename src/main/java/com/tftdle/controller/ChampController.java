@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = {"http://localhost:3000", "https://tftdle.vercel.app", "https://tft-dle.com", "https://www.tft-dle.com"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/champs")
 public class ChampController {

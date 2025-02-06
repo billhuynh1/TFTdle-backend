@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = {"http://localhost:3000", "https://tftdle.vercel.app", "https://tft-dle.com", "https://www.tft-dle.com"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/session")
 public class SessionController {
